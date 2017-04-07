@@ -1,0 +1,117 @@
+import java.awt.Graphics;
+public class CircleAlgorithms {
+    private static void setPixel(Graphics g, int x, int y, int size)
+    {
+        g.fillRect(x, y, size, size);
+    }
+    private static void drawSymmetricPoints(Graphics g, int mx, int my, int x, int y, int multiplier)
+    {
+        setPixel(g, (mx + x) * multiplier, (my - y) * multiplier, multiplier);
+        setPixel(g, (mx + x) * multiplier, (my + y) * multiplier, multiplier);
+        setPixel(g, (mx - x) * multiplier, (my + y) * multiplier, multiplier);
+        setPixel(g, (mx - x) * multiplier, (my - y) * multiplier, multiplier);
+        setPixel(g, (mx + y) * multiplier, (my - x) * multiplier, multiplier);
+        setPixel(g, (mx + y) * multiplier, (my + x) * multiplier, multiplier);
+        setPixel(g, (mx - y) * multiplier, (my + x) * multiplier, multiplier);
+        setPixel(g, (mx - y) * multiplier, (my - x) * multiplier, multiplier);
+    }
+    
+    public static void drawCircleSimple1(Graphics g, int midPointX, int midPointY, int radius, int multiplier)
+    {
+        midPointX /= multiplier;
+        midPointY /= multiplier;
+        radius /= multiplier;
+        
+        int rSquare = radius * radius;
+        double fy;
+        for (int x = -radius; x < radius; x++)
+        {
+            fy = Math.sqrt(rSquare - (x*x));
+            setPixel(g, Math.round(midPointX + x) * multiplier, (int)Math.round(midPointY + fy) * multiplier, multiplier);
+            setPixel(g, Math.round(midPointX + x) * multiplier, (int)Math.round(midPointY - fy) * multiplier, multiplier);
+        }
+    }
+
+    public static void drawCircleSimple2(Graphics g, int midPointX, int midPointY, int radius, int multiplier)
+    {
+        midPointX /= multiplier;
+        midPointY /= multiplier;
+        radius /= multiplier;
+        double y = radius;
+        int x = 1;
+        int rSquare = radius * radius;
+        y = (int) (Math.sqrt(rSquare - x*x) + 0.5);
+
+        setPixel(g, midPointX * multiplier, (midPointY + radius) * multiplier, multiplier);
+        setPixel(g, midPointX * multiplier, (midPointY - radius) * multiplier, multiplier);
+        setPixel(g, (midPointX - radius) * multiplier, midPointY * multiplier, multiplier);
+        setPixel(g, (midPointX + radius) * multiplier, midPointY * multiplier, multiplier);
+        while (x <= y)
+        {
+            setPixel(g, (midPointX + x) * multiplier, (int)(midPointY + y) * multiplier, multiplier);
+            setPixel(g, (midPointX + x) * multiplier, (int)(midPointY - y) * multiplier, multiplier);
+            setPixel(g, (midPointX - x) * multiplier, (int)(midPointY + y) * multiplier, multiplier);
+            setPixel(g, (midPointX - x) * multiplier, (int)(midPointY - y) * multiplier, multiplier);
+            setPixel(g, (int)(midPointX + y) * multiplier, (midPointY + x) * multiplier, multiplier);
+            setPixel(g, (int)(midPointX + y) * multiplier, (midPointY - x) * multiplier, multiplier);
+            setPixel(g, (int)(midPointX - y) * multiplier, (midPointY + x) * multiplier, multiplier);
+            setPixel(g, (int)(midPointX - y) * multiplier, (midPointY - x) * multiplier, multiplier);
+            x += 1;
+            y = (int) (Math.sqrt(rSquare - x*x) + 0.5);
+        }
+    }
+    
+    public static void drawCircleBresenhamFloat(Graphics g, int midPointX, int midPointY, int radius, int multiplier)
+    {
+        midPointX /= multiplier;
+        midPointY /= multiplier;
+        radius /= multiplier;
+        int x = 0;
+        int y = radius;
+        double d = 1.25 - radius;
+
+        drawSymmetricPoints(g, midPointX, midPointY, x, y, multiplier);
+        while (x < y)
+        {
+            if (d < 0)
+            {
+                d = d + 2 * x + 3;
+                x++;
+            }
+            else
+            {
+                d = d + 2 * (x-y) + 5;
+                x++;
+                y--;
+            }
+            drawSymmetricPoints(g, midPointX, midPointY, x, y, multiplier);
+        }
+    }
+
+    public static void drawCircleBresenhamInt(Graphics g, int midPointX, int midPointY, int radius, int multiplier)
+    {
+        midPointX /= multiplier;
+        midPointY /= multiplier;
+        radius /= multiplier;
+        int x = 0;
+        int y = radius;
+        int d = 1 - radius;
+
+        drawSymmetricPoints(g, midPointX, midPointY, x, y, multiplier);
+        while (x < y)
+        {
+            if (d < 0)
+            {
+                d = d + 2 * x + 3;
+                x++;
+            }
+            else
+            {
+                d = d + 2 * (x-y) + 5;
+                x++;
+                y--;
+            }
+            drawSymmetricPoints(g, midPointX, midPointY, x, y, multiplier);
+        }
+    }
+}
