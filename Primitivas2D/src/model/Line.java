@@ -72,7 +72,7 @@ public class Line {
             while ((x >= x1 && ix== -1 )|| (x <= x1 && ix == 1 ))
             {
                 arr.add(new Point(x,y));
-                System.out.println(x+" "+y);
+                //System.out.println(x+" "+y);
                 x = x + ix;
                 if (p >= 0){
                     y = y + iy;
@@ -91,7 +91,7 @@ public class Line {
             while ((y >= y1 && iy== -1 )|| (y <= y1 && iy == 1 ))
             {
                 arr.add(new Point(x,y));
-                System.out.println(x+" "+y);
+                //System.out.println(x+" "+y);
                 y = y + iy;
                 if (p >= 0){
                     x = x + ix;
