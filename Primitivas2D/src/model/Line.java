@@ -19,7 +19,7 @@ public class Line {
 
 	public ArrayList<Point> ecuacion(){   //(int x0, int y0, int x1, int y1)
         ArrayList<Point> arr = new ArrayList<Point>();    
-        x0= p1.x;   y0 = p1.y;    x1 = p2.x;     y1 = p2.y;
+        int x0= p1.x;  int  y0 = p1.y; int   x1 = p2.x;  int   y1 = p2.y;
         int  ix, iy, x, y;
         double dx, dy;
         dx = x1 - x0;
@@ -51,7 +51,7 @@ public class Line {
     }
 	
 	public ArrayList<Point> bresenham(){	//(int x0, int y0, int x1, int y1)
-	      x0= p1.x;   y0 = p1.y;    x1 = p2.x;     y1 = p2.y;
+	    int  x0= p1.x;   int  y0 = p1.y;  int  x1 = p2.x;  int   y1 = p2.y;
         ArrayList<Point> arr = new ArrayList<Point>();        
         int  ix, iy, x, y, dx, dy, p, deltaA, deltaB;
         dx = Math.abs(x1 - x0);

@@ -22,7 +22,7 @@ public class TestModel {
 		ans.add(new Point(7,1));
 		ans.add(p2);
 		Line line = new Line(p1,p2);
-		ArrayList<Point> act = line.DDA(p1,p2);
+		ArrayList<Point> act = line.DDA();
 		boolean bool = true;
 		for(int i=0;i<ans.size();i++){
 			bool = bool & (ans.get(i).equals(act.get(i)));

@@ -3,10 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.awt.Point;
 
-public final class Circunferencia {
+public final class Circumference {
 	private int h, k ,r;
 	
-	public Circunferencia(int cx, int cy, int radio){
+	public Circumference(int cx, int cy, int radio){
 		h = cx;
 		k = cy;
 		r = radio;
@@ -18,7 +18,7 @@ public final class Circunferencia {
 		r = radio;
 	}
 	
-	public static ArrayList<Point> polar(){       //o polar(int h, int k, int r)
+	public ArrayList<Point> polar(){       //o polar(int h, int k, int r)
         ArrayList<Point> p = new ArrayList<Point>();
         final double lim = Math.PI/4;
         int x = r, y = 0;
