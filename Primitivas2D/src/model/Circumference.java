@@ -1,14 +1,18 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.HashSet;
 import java.awt.Point;
 
 public final class Circunferencia {
 	private int h, k ,r;
 	
 	public Circunferencia(int cx, int cy, int radio){
+		h = cx;
+		k = cy;
+		r = radio;
+	}
+	
+	public void setPoints(int cx, int cy, int radio){
 		h = cx;
 		k = cy;
 		r = radio;
