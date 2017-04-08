@@ -12,7 +12,7 @@ public final class Circumference {
 		r = radio;
 	}
 	
-	public void setPoints(int cx, int cy, int radio){
+	public void setCenter(int cx, int cy, int radio){
 		h = cx;
 		k = cy;
 		r = radio;
