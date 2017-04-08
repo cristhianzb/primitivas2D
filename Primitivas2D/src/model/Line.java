@@ -12,7 +12,8 @@ public class Line {
 		this.p2=p2;
 	}
 	
-	public ArrayList<Point> bresenham(int x0, int y0, int x1, int y1){
+	public ArrayList<Point> bresenham(){	//(int x0, int y0, int x1, int y1)
+	x0= p1.x;   y0 = p1.y;    x1 = p2.x;     y1 = p2.y;
         ArrayList<Point> arr = new ArrayList<Point>();        
         int  ix, iy, x, y, dx, dy, p, deltaA, deltaB;
         dx = Math.abs(x1 - x0);
@@ -66,7 +67,7 @@ public class Line {
         return arr;
         }
 	
-	public ArrayList<Point> DDA(Point p1,Point p2){
+	public ArrayList<Point> DDA(){		//(Point p1,Point p2)
 		ArrayList<Point> list = new ArrayList<Point>();
 		int dx = p2.x-p1.x;
 		int dy = p2.y-p1.y;
