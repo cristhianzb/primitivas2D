@@ -11,6 +11,11 @@ public class Line {
 		this.p1=p1;
 		this.p2=p2;
 	}
+	
+	public void setPoints(Point a, Point b){
+		p1 = a;
+		p2 = b;
+	}
 
 	public ArrayList<Point> ecuacion(){   //(int x0, int y0, int x1, int y1)
         ArrayList<Point> arr = new ArrayList<Point>();    
