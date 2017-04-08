@@ -5,9 +5,9 @@ import java.util.Set;
 import java.util.HashSet;
 import java.awt.Point;
 
-public class Circunferencia {
+public final class Circunferencia {
 	
-	public ArrayList<Point> circuloP(int h, int k, int r){
+	public static ArrayList<Point> polar(int h, int k, int r){
         ArrayList<Point> p = new ArrayList<Point>();
         final double lim = Math.PI/4;
         int x = r, y = 0;
