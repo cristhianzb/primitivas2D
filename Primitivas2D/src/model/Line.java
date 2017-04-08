@@ -12,6 +12,38 @@ public class Line {
 		this.p2=p2;
 	}
 	
+	public ArrayList<Point> ecuacion(int x0, int y0, int x1, int y1){
+        ArrayList<Point> arr = new ArrayList<Point>();        
+        int  ix, iy, x, y;
+        double dx, dy;
+        dx = x1 - x0;
+        dy = y1 - y0;
+        x = x0; y = y0;
+        
+        double m = dy/dx;
+        double b = y0 - m*x0;
+        
+        arr.add(new Point(x, y));
+        
+        if(dx >= 0) ix = 1;
+        else ix = -1;
+        if(dy >= 0) iy = 1;
+        else iy = -1;
+        if (Math.abs(m) <= 1)
+            while(x != x1){
+                y = (int)Math.round(m*x + b);
+                x = x + ix;
+                arr.add(new Point(x, y));
+            }
+        else
+            while(y != y1){
+                x = (int)Math.round((y - b)/m);
+                y = y + iy;
+                arr.add(new Point(x, y));
+            }
+        return arr;
+    }
+	
 	public ArrayList<Point> bresenham(int x0, int y0, int x1, int y1){
         ArrayList<Point> arr = new ArrayList<Point>();        
         int  ix, iy, x, y, dx, dy, p, deltaA, deltaB;
