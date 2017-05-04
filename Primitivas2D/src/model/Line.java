@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 public class Line {
+//COMENTARIO: HOOLAAA
 	private Point p1;
 	private Point p2;
 	
