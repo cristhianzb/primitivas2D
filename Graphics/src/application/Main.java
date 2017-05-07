@@ -6,7 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
-
+//comentario
+//comentario
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
@@ -14,7 +15,7 @@ public class Main extends Application {
 		
 		StackPane root = new StackPane();
 		Scene scene= new Scene(root,500,200);
-		
+		//comentario
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
